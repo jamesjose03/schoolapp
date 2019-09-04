@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import './login.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -31,7 +32,15 @@ class HomePage extends StatefulWidget {
             alignment: Alignment(0, 0),
             ),
             RaisedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context).push(
+                  new PageRouteBuilder(
+                    pageBuilder: (BuildContext context,_,__) {
+                      return new LoginPage();
+                    }
+                  )
+                );
+              },
               child: Text('Sign In'),
               shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
             )
