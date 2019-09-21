@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './login.dart';
+import './transition.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -12,16 +13,14 @@ class HomePage extends StatefulWidget {
     @override
     Widget build(BuildContext context) {
       return Scaffold(
+        backgroundColor: Color(0xFFFFE6B4),
         resizeToAvoidBottomPadding: false,
-        appBar: AppBar(
-          title: Text('Welcome!'),
-        ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Icon(Icons.school),
             Align(
-            child: Text('Welcome to the App!', 
+            child: Text('Indian School Salalah', 
             style: TextStyle(
               fontFamily: 'Open Sans',
               fontStyle: FontStyle.italic,
@@ -33,16 +32,13 @@ class HomePage extends StatefulWidget {
             ),
             RaisedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  new PageRouteBuilder(
-                    pageBuilder: (BuildContext context,_,__) {
-                      return new LoginPage();
-                    }
-                  )
-                );
+                Navigator.push(context,
+                FadeRoute(page: LoginPage()));
               },
               child: Text('Sign In'),
-              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0))
+              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(500.0)),
+              color: Color(0xFFB38867),
+              textColor: Colors.white,
             )
           ],
         ),
